@@ -11,8 +11,9 @@ export const fetchProducts = createAsyncThunk(
 	'product/fetchAll',
 	async (searchQuery, thunkApi) => {
 		try {
-			let url = `https://my-json-server.typicode.com/lareinehan/hnm-hw/products?q=${searchQuery}`;
+			let url = `https://my-json-server.typicode.com/lareinehan/redux-toolkit-hnm/products?q=${searchQuery}`;
 			let res = await fetch(url);
+			console.log('res fetchProducts: ', res);
 			return await res.json();
 		} catch (err) {
 			thunkApi.rejectWithValue(err.message);
@@ -24,7 +25,7 @@ export const fetchProductDetail = createAsyncThunk(
 	'product/fetchDetail',
 	async (id, thunkApi) => {
 		try {
-			let url = `https://my-json-server.typicode.com/lareinehan/hnm-hw/product/${id}`;
+			let url = `https://my-json-server.typicode.com/lareinehan/redux-toolkit-hnm/products/${id}`;
 			let res = await fetch(url);
 			console.log('res: ', res);
 			return await res.json();
