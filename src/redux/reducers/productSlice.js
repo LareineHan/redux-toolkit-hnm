@@ -27,7 +27,7 @@ export const fetchProductDetail = createAsyncThunk(
 		try {
 			let url = `https://my-json-server.typicode.com/lareinehan/redux-toolkit-hnm/products/${id}`;
 			let res = await fetch(url);
-			console.log('res: ', res);
+			await console.log('id received from thunk: ', id, 'res: ', res);
 			return await res.json();
 		} catch (err) {
 			thunkApi.rejectWithValue(err.message);
@@ -43,25 +43,36 @@ export const productSlice = createSlice({
 		builder
 			.addCase(fetchProducts.pending, (state) => {
 				state.isLoading = true;
+				console.log('fetchProducts pending');
 			})
 			.addCase(fetchProducts.fulfilled, (state, action) => {
 				state.isLoading = false;
 				state.productList = action.payload;
+				console.log('fetchProducts fulfilled');
 			})
 			.addCase(fetchProducts.rejected, (state, action) => {
 				state.isLoading = false;
 				state.err = action.payload;
+				console.log('fetchProducts rejected');
 			})
+
 			.addCase(fetchProductDetail.pending, (state) => {
 				state.isLoading = true;
 			})
 			.addCase(fetchProductDetail.fulfilled, (state, action) => {
 				state.isLoading = false;
-				state.productDetail = action.payload;
+				state.detailProduct = action.payload;
+				console.log(
+					'fetchProductDetail fulfilled with ',
+					action.payload,
+					'state: ',
+					state.detailProduct
+				);
 			})
 			.addCase(fetchProductDetail.rejected, (state, action) => {
 				state.isLoading = false;
 				state.err = action.payload;
+				console.log('fetchProductDetail rejected');
 			});
 	},
 });

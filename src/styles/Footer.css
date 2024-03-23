@@ -79,3 +79,80 @@ div {font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Robot
     width: 90px;
     cursor: pointer;
 }
+
+
+/* Ipad style */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+    
+    .footer-container{
+        max-width: 100%;
+        margin: auto;
+        padding: 3rem 2rem 2rem 2rem;
+        min-height: 40vh;
+        background-color: bisque;
+    }
+
+    
+    .social-icons svg {
+        font-size: 1.7rem;
+        margin: 0.8em;
+    }
+    .footer1-menu .col p {
+        font-size: 1rem;
+    }
+}
+@media only screen
+    and (device-width: 430px) 
+    and (device-height: 932px) 
+    and (-webkit-device-pixel-ratio: 3) {
+    
+    .footer1-menu {
+        flex-direction: column;
+        text-align: center;
+    }
+    .footer1-menu .row , .footer-message {
+        display: none;
+    }
+    .join-text {
+        margin-top:-1em;
+        padding-bottom: 1em;
+    }
+    .read-more {
+        text-align: center;
+        font-weight: 700;
+        font-size: 1.2rem;
+    }
+    .social-icons svg {
+        font-size: 1.7rem;
+        margin: 0.6em;
+    }
+}
+
+
+@media only screen and (min-device-width: 280px) and (max-device-width: 540px) {
+   
+    .footer1-menu {
+        flex-direction: column;
+        text-align: center;
+    }
+    .footer1-menu .row , .footer-message {
+        display: none;
+    }
+    .footer1-menu .col p {
+        font-size: 1.1rem;
+        margin-bottom : 1.2em;
+    }
+    .join-text {
+        display: none;
+    }
+    .read-more {
+        text-align: center;
+        font-weight: 700;
+        font-size: 1.2rem;
+        margin-top: 3rem;
+    }
+    .social-icons svg {
+        font-size: 1.7rem;
+        margin: 0.6em;
+    }
+}

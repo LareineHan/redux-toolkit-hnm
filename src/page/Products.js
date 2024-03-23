@@ -12,6 +12,7 @@ const Products = () => {
 		let searchQuery = query.get('q') || '';
 		console.log('searchQuery ?? ', searchQuery);
 		dispatch(fetchProducts(searchQuery)); // 액션을 디스패치한다.
+		console.log('productList: ', productList);
 	};
 
 	useEffect(() => {

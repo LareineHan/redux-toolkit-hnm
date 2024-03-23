@@ -7,20 +7,27 @@ import { fetchProductDetail } from '../redux/reducers/productSlice';
 
 const ProductDetail = () => {
 	const dispatch = useDispatch();
-	const productDetail = useSelector((state) => state.product.detailProduct);
-	let { id } = useParams();
-	let productImg = productDetail.img;
-	let productTitle = productDetail.title;
-	let productPrice = productDetail.price;
-	let isNew = productDetail.new;
-	let isChoice = productDetail.choice;
-	let sizeOptions = productDetail.size;
-	const getProductDetail = async (id) => {
-		dispatch(fetchProductDetail(id));
+	const item = useSelector((state) => state.product.detailProduct);
+	// const productDetail = useSelector((state) => state.product.detailProduct);
+	let { id } = useParams(); // useParams()를 사용하여 URL 파라미터를 가져온다.
+	const productDetail = async () => {
+		await dispatch(fetchProductDetail(id));
 	};
+	console.log('productDetail: ', item);
+
+	let productImg = item.img;
+	let productTitle = item.title;
+	let productPrice = item.price;
+	let isNew = item.new;
+	let isChoice = item.choice;
+	let sizeOptions = item.size;
+
+	// const getProductDetail = async () => {
+	// 	await dispatch(fetchProductDetail(id));
+	// 	console.log('getProductDetail id: ', id, 'productDetail: ', productDetail);
+	// };
 	useEffect(() => {
-		console.log('productDetail Page: ', productDetail, 'id: ', id);
-		getProductDetail();
+		productDetail(id);
 	}, [id]);
 
 	return (
@@ -41,7 +48,9 @@ const ProductDetail = () => {
 					<select name='detail-size' id='size'>
 						<option value=''>Select Size</option>
 						{sizeOptions?.map((size) => (
-							<option value={size}>{size}</option> // sizeOptions가 있을 때만 실행
+							<option key={`help_${size}`} value={size}>
+								{size}
+							</option> // sizeOptions가 있을 때만 실행
 						))}
 					</select>
 				</div>

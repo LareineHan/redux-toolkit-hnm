@@ -10,12 +10,16 @@ let initialState = {
 export const handleAuthenticate = createAsyncThunk(
 	'auth/getLogin', // 액션의 이름
 	async ({ id, password }) => {
-		return { id, password };
+		console.log('handleAuthenticate called trying to login!'); // call to see authenticate status result in slice
+		return { id, password, authenticate: true };
 	}
 );
 export const handleFalseAuthenticate = createAsyncThunk(
 	'auth/getLogout', // 액션의 이름
-	{ id: '', password: '' }
+	async () => {
+		console.log('handleAuthenticate called trying to logout!');
+		return { id: '', password: '', authenticate: false };
+	}
 );
 
 // 위 handleAuthenticate에서 사용자가 입력한 데이터를 받아온다.
@@ -26,29 +30,37 @@ export const handleFalseAuthenticate = createAsyncThunk(
 export const authenticateSlice = createSlice({
 	name: 'auth', // 슬라이스의 이름 즉 액션의 이름이다.
 	initialState,
-	reducers: {
-		getLogin: (state, action) => {
-			state.id = action.payload.id;
-			state.password = action.payload.password;
-			state.authenticate = true;
-		},
-		getLogout: (state) => {
-			state.id = '';
-			state.password = '';
-			state.authenticate = false;
-		},
-	},
+	// reducers: {
+	// 	getLogin: (state, action) => {
+	// 		state.id = action.payload.id;
+	// 		state.password = action.payload.password;
+	// 		state.authenticate = true;
+	// 		console.log('state after getLogin: ', state);
+	// 	},
+	// 	getLogout: (state) => {
+	// 		state.id = '';
+	// 		state.password = '';
+	// 		state.authenticate = false;
+	// 		console.log('state after getLogout: ', state);
+	// 	},
+	// },
 	extraReducers: (builder) => {
 		builder
 			.addCase(handleAuthenticate.fulfilled, (state, action) => {
 				state.id = action.payload.id;
 				state.password = action.payload.password;
 				state.authenticate = true;
+				console.log(
+					'state after handleAuthenticate.fulfilled and authenticate is now? ',
+					state.authenticate
+				);
 			})
-			.addCase(handleFalseAuthenticate.fulfilled, (state, action) => {
-				state.id = '';
-				state.password = '';
+			.addCase(handleFalseAuthenticate.fulfilled, (state) => {
 				state.authenticate = false;
+				console.log(
+					'state after handleFalseAuthenticate.fulfilled and authenticate is now? ',
+					state.authenticate
+				);
 			});
 	},
 });

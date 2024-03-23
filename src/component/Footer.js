@@ -48,7 +48,7 @@ const Footer = () => {
 		<div className='footer-container'>
 			<Container>
 				<Row className='footer1-menu'>
-					<Col>
+					<Col sm={3} className='shop'>
 						<p className='footer-h7'>SHOP</p>
 						<Row>
 							{shopMenu.map((item, index) => (
@@ -58,7 +58,7 @@ const Footer = () => {
 							))}
 						</Row>
 					</Col>
-					<Col>
+					<Col sm={3} className='corp'>
 						<p className='footer-h7'>CORPORATE INFO</p>
 						<Row>
 							{corporateInfo.map((item, index) => (
@@ -68,7 +68,7 @@ const Footer = () => {
 							))}
 						</Row>
 					</Col>
-					<Col>
+					<Col sm={3}>
 						<p className='footer-h7'>HELP</p>
 						<Row>
 							{help.map((item, index) => (
@@ -78,10 +78,12 @@ const Footer = () => {
 							))}
 						</Row>
 					</Col>
-					<Col>
+					<Col sm={3}>
 						<p className='footer-h7'>Become a member</p>
 
-						<p>Join now and get 10% off your next purchase!</p>
+						<p className='join-text'>
+							Join now and get 10% off your next purchase!
+						</p>
 						<h6 className='read-more'>
 							READ MORE <FontAwesomeIcon icon={faArrowRight} />
 						</h6>
@@ -96,7 +98,7 @@ const Footer = () => {
 						<FontAwesomeIcon icon={faFacebook} />
 					</Col>
 					<Row>
-						<p>
+						<p className='footer-message'>
 							The content of this site is copyright-protected and is the
 							property of H&M Hennes & Mauritz AB. H&M is committed to
 							accessibility. That commitment means H&M embraces WCAG guidelines
