@@ -1,38 +1,577 @@
-.App {
-  text-align: center;
+/* Nav bar */
+div {
+  font-family: 'Roboto', sans-serif;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.logo-section div{
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  margin-top:5rem;
+}
+.Log-btn {
+  display: flex;
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 2rem 2rem 0 0;
+  justify-content: flex-end;
+  cursor: pointer;
+}
+.login-btn {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  cursor: pointer;
+}
+.login-btn:hover {
+  font-weight: bold;
+  text-decoration: underline;
+}
+.logout-btn{
+  display: flex;
+  color: red;
+  justify-content: flex-end;
+  align-items: center;
+  cursor: pointer !important;
+}
+.logout-btn:hover {
+  font-weight: bold;
+  text-decoration: underline;
+}
+.logout-btn button {
+  background-color: transparent;
+  border: none;
+  font-size: medium;
+  font-weight: bold;
+  color: red;
+}
+.logout-text{
+  margin-left: 0px;
+  font-size: medium;
+}
+.login-text {
+  margin-left: 7px;
+  font-size: medium;
+}
+.mobile-close{
+  display: none;
+}
+.nav-section {
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+}
+.menu-container {
+  margin: 20px;
+}
+.menu{
+  display: flex;
+  justify-content: center;
+  margin: 0 17px;
+  cursor: pointer;
+  font-weight: regular;
+  font-size: 0.97rem; 
+}
+.menu li {
+  font-family: 'Poppins', sans-serif;
+  margin: 0 17px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 0.97rem; 
+}
+.menu li:hover{
+  font-weight: bold;
+    text-decoration: underline;
 }
 
-.App-link {
-  color: #61dafb;
+ul {
+  list-style-type: none;
+}
+.nav-toggle{
+  display: none;
+
+}
+.search-bar {
+  position: absolute;
+  right:0;
+  top: 0;
+  margin: 8.7rem 2rem 0 0;
+}
+.search-bar svg {
+  cursor: pointer;
+}
+.search-bar svg:hover {
+ transform: scale(1.1);
+}
+.search-bar input {
+  width: 180px;
+  border: none; /* Remove the border */
+  border-bottom: 1px solid #000; /* Add a bottom border */
+  margin-left: 5px;
+}
+.search-bar input:focus {
+  outline: none; /* Remove the outline */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.no-search-container{
+  padding: 10rem 0 10rem 0;
+  text-align: center;
+  min-height: 60vh;
+}
+
+
+.each-product-container{
+  margin: 2rem;
+  cursor: pointer;
+
+}
+
+.product-img {
+  background-image: cover;
+  width: 100%;
+}
+.product-img:hover {
+  transform: scale(1.01);
+  transition: transform 0.5s;
+}
+.choice{
+  font-family: monospace;
+  font-size: small;
+  color: purple;
+}
+
+
+@media screen and (max-width: 1100px) {
+    .logo{
+      width: 70px;
+    }
+    .container.toggle-area{
+      margin: 0;
+    }
+    .toggle-area button{
+      display: flex;
+      justify-content: flex-end;
+      border: 0;
+      background-color: transparent;
+      font-size: 2rem;
+      position: fixed; 
+      left:0;
+      padding: 20px;
+      color: rgb(34, 34, 34)
+    }
+  
+    .mobile-close {
+      display: block;
+      position: absolute;
+      z-index: 2; /* positioning above the menu */
+      top: 0;
+      right: 0;
+      margin: 1.5rem;
+      font-size: 2rem;
+      cursor: pointer;
+    }
+    .menu-container {
+      z-index: 1; 
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin: 10px;/* Add position relative */
+    }
+    .menu-container-mobile-menu { /* this is about menu-container-monbile-menu*/
+      color: white;
+      z-index: 1; 
+      background: #2f2c2cdc;
+      padding-left: 0;
+      box-shadow: 0 10px 15px -3px rgb(46 41 51 / 8%), 0 4px 6px -2px rgb(71 63 79 / 16%);
+     }
+    .menu-container ul { /* this is about mobile menu box design */
+      position: fixed;
+      top: 0%;
+      right: 0%;
+      width: 50vw;
+      list-style: none;
+      color: white;
+      overflow: scroll;
+      height: 100%;
+      background: #000000d6;
+  
+    }
+  
+    .Log-btn {
+      position: relative;
+      justify-content: flex-start;
+      margin: 2rem 0px 1rem 2rem;
+    }  
+   
+    .login-text {
+      font-size: 1.5rem; 
+    }
+    button.logout-text {
+      font-size: 1.5rem; 
+    }
+    .fa-user, .fa-magnifying-glass {
+      margin-right: 1rem;
+      font-size: 1.8rem;
+    }
+    .menu {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      margin-top: 2em;
+      margin-left: 2em;
+      margin-bottom: 2em;
+    }
+    .menu li {
+      margin-bottom: 10px;
+      margin-top: 10px;
+      font-size: 1.3em;
+      color: whitesmoke;
+    }
+    .menu-list { /*  hiding regular menu on mobile */
+      display: none
+    }
+  
+    .search-bar {
+      position: relative;
+      display:flex;
+      align-items: center;
+      justify-content: flex-start;
+      margin: 2rem 2rem 2rem 2rem;
+    }
+  
+    .search-bar input {
+      width: 100%;
+      font-size: 1.3em;
+      padding-left: 10px;
+    }
+
+    .detail-description-area h2{
+      font-size:1.3rem;
+    }
+    .detail-description-area div {
+      font-size: 1.2rem;
+    }
+    .detail-description-area select {
+      margin-top: 1rem;
+      font-size: 1.3rem;
+      margin-bottom: 3rem;
+    } 
+}
+/* == iPad MINI == */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+  .logo{
+    width: 70px;
   }
-  to {
-    transform: rotate(360deg);
+  .container.toggle-area{
+    margin: 0;
+  }
+  .toggle-area button{
+    display: flex;
+    justify-content: flex-end;
+    border: 0;
+    background-color: transparent;
+    font-size: 3rem;
+    position: fixed; 
+    left:0;
+    padding: 20px;
+    color: rgb(34, 34, 34);
+  }
+
+  .mobile-close {
+    display: block;
+    position: absolute;
+    z-index: 2; /* positioning above the menu */
+    top: 0;
+    right: 0;
+    margin: 1.5rem;
+    font-size: 4rem;
+    cursor: pointer;
+  }
+  .menu-container {
+    z-index: 1; 
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;/* Add position relative */
+  }
+  .menu-container-mobile-menu { /* this is about menu-container-monbile-menu*/
+    color: white;
+    z-index: 1; 
+    background: #2f2c2cdc;
+    padding-left: 0;
+    box-shadow: 0 10px 15px -3px rgb(46 41 51 / 8%), 0 4px 6px -2px rgb(71 63 79 / 16%);
+   }
+  .menu-container ul { /* this is about mobile menu box design */
+    position: fixed;
+    top: 0%;
+    right: 0%;
+    width: 80vw;
+    list-style: none;
+    color: white;
+    overflow: scroll;
+    height: 100vh;
+    background: #000000d6;
+    transform: translateX(-180px) translateY(-100); 
+    transition: transform ease-in-out 0.2s;
+  }
+
+  .Log-btn {
+    position: relative;
+    justify-content: flex-start;
+    margin: 2rem 0px 1rem 2rem;
+  }  
+ 
+  .login-text {
+    font-size: 2rem; 
+  }
+  button.logout-text {
+    font-size: 2rem; 
+  }
+  .fa-user, .fa-magnifying-glass {
+    margin-right: 2rem;
+    font-size: 3rem;
+  }
+  .menu {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 2em;
+    margin-left: 2em;
+    margin-bottom: 2em;
+  }
+  .menu li {
+    margin-bottom: 10px;
+    margin-top: 10px;
+    font-size: 2em;
+    color: whitesmoke;
+  }
+  .menu-list { /*  hiding regular menu on mobile */
+    display: none
+  }
+
+  .search-bar {
+    position: relative;
+    display:flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 2rem 0px 2rem 2rem;
+  }
+
+  .search-bar input {
+    width: 50vw;
+    font-size: 2rem;
+    padding-left: 10px;
+  }
+  .detail-description-area h2{
+    font-size:2rem;
+  }
+  .detail-description-area div {
+    font-size: 1.2rem;
+  }
+  .detail-description-area select {
+    margin-top: 1rem;
+    font-size: 1.5rem;
+  } 
+}
+
+/* iPhone 14 Pro Max */
+@media only screen
+    and (device-width: 430px) 
+    and (device-height: 932px) 
+    and (-webkit-device-pixel-ratio: 3) {
+      .toggle-area button{
+        display: flex;
+        justify-content: flex-end;
+        border: 0;
+        background-color: transparent;
+        font-size: 3rem;
+        position: fixed; 
+        left:0;
+        padding: 20px;
+        color:rgb(34, 34, 34);
+      }
+      .logo{
+        width: 70px;
+      }
+
+      .mobile-close {
+        display: block;
+        position: absolute;
+        z-index: 2; /* positioning above the menu */
+        top: 0;
+        right: 0;
+        margin: 1rem;
+        font-size: 3rem;
+        cursor: pointer;
+      }
+      .menu-container {
+        z-index: 1; 
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 10px;/* Add position relative */
+      }
+      .menu-container-mobile-menu { /* this is about menu-container-monbile-menu*/
+        color: white;
+        z-index: 1; 
+        background: #2f2c2c;
+        padding-left: 0;
+        box-shadow: 0 10px 15px -3px rgb(46 41 51 / 8%), 0 4px 6px -2px rgb(71 63 79 / 16%);
+       }
+
+    
+      .Log-btn {
+        position: relative;
+        justify-content: flex-start;
+        margin: 25px 0px 15px 25px;
+      }  
+     
+      .login-text , .logout-text, .fa-user,.fa-magnifying-glass {
+        font-size: 1.7em; 
+      }
+      .fa-user, .fa-magnifying-glass {
+        margin-right: 10px;
+        font-size: 2em;
+      }
+      .menu {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-top: 2em;
+        margin-left: 2em;
+        margin-bottom: 2em;
+      }
+      .menu li {
+        margin-bottom: 10px;
+        margin-top: 10px;
+        font-size: 2em;
+        color: whitesmoke;
+      }
+      .menu-list { /*  hiding regular menu on mobile */
+        display: none
+      }
+    
+      .search-bar {
+        position: relative;
+        display:flex;
+        align-items: center;
+        justify-content: flex-start;
+        margin: 15px 0px 10px 20px;
+      }
+    
+      .search-bar input {
+        width: 50vw;
+        font-size: 2em;
+        padding-left: 10px;
+      }
+}
+
+/* smaller mobile devices */
+@media only screen and (min-device-width: 280px) and (max-device-width: 540px) {
+  .logo{
+    width: 100px;
+  }
+
+  .container.toggle-area{
+    margin: 0;
+  }
+  .toggle-area button{
+    display: flex;
+    justify-content: flex-end;
+    border: 0;
+    background-color: transparent;
+    font-size: 2.2rem;
+    position: fixed; 
+    left:0;
+    padding: 20px;
+    color: rgb(34, 34, 34);
+  }
+
+  .mobile-close {
+    display: block;
+    position: absolute;
+    z-index: 2; /* positioning above the menu */
+    top: 0;
+    right: 0;
+    margin-right: 1rem;
+    margin-top: 1rem;
+    font-size: 2.2rem;
+    cursor: pointer;
+  }
+  .menu-container {
+    z-index: 1; 
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;/* Add position relative */
+  }
+  .menu-container-mobile-menu { /* this is about menu-container-monbile-menu*/
+    color: white;
+    z-index: 1; 
+    background: #2f2c2c;
+    padding-left: 0;
+    box-shadow: 0 10px 15px -3px rgb(46 41 51 / 8%), 0 4px 6px -2px rgb(71 63 79 / 16%);
+  }
+  .menu-container ul {
+    position: fixed;
+    top: 0%;
+    right: 0%;
+    width: 80vw;
+    list-style: none;
+    color: white;
+    overflow: scroll;
+    height: 100%;
+    background: #2f2c2cf9;
+  }
+
+  .Log-btn {
+    position: relative;
+    justify-content: flex-start;
+    margin: 2rem 0px 1rem 1rem;
+  }  
+  .login-text , .logout-text, .fa-user,.fa-magnifying-glass {
+    font-size: 1.3rem; 
+  }
+  .fa-user, .fa-magnifying-glass {
+    margin-right: 1rem;
+  }
+  .menu {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 2em;
+    margin-left: 2em;
+    margin-bottom: 2em;
+    overflow: scroll;
+  }
+  .menu li {
+    margin-bottom: 5px;
+    margin-top: 10px;
+    font-size: 1.5em;
+    color: whitesmoke;
+  }
+  .menu-list { /*  hiding regular menu on mobile */
+    display: none
+  }
+  .search-bar {
+    position: relative;
+    display:flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 0rem 0px 2rem 0rem;
+  }
+
+  .search-bar input {
+    width: 80%;
+    font-size: 1.5em;
+    padding-left: 1rem;
+    margin-right: 2rem;
   }
 }
