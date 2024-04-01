@@ -1,14 +1,14 @@
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { Container } from 'react-bootstrap';
+import { Container, Button } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
+import Form from 'react-bootstrap/Form';
 import '../styles/ProductDetail.css';
 import { fetchProductDetail } from '../redux/reducers/productSlice';
 
 const ProductDetail = () => {
 	const dispatch = useDispatch();
 	const item = useSelector((state) => state.product.detailProduct);
-	// const productDetail = useSelector((state) => state.product.detailProduct);
 	let { id } = useParams(); // useParams()를 사용하여 URL 파라미터를 가져온다.
 	const productDetail = async () => {
 		await dispatch(fetchProductDetail(id));
@@ -22,10 +22,6 @@ const ProductDetail = () => {
 	let isChoice = item.choice;
 	let sizeOptions = item.size;
 
-	// const getProductDetail = async () => {
-	// 	await dispatch(fetchProductDetail(id));
-	// 	console.log('getProductDetail id: ', id, 'productDetail: ', productDetail);
-	// };
 	useEffect(() => {
 		productDetail(id);
 	}, [id]);
@@ -45,14 +41,21 @@ const ProductDetail = () => {
 					<div className='detail-is-choice'>
 						{isChoice === true ? 'Conscious choice' : ''}
 					</div>
-					<select name='detail-size' id='size'>
-						<option value=''>Select Size</option>
+
+					<Form.Select aria-label='detail-page-size' id='size'>
+						<option>Select Size</option>
 						{sizeOptions?.map((size) => (
-							<option key={`help_${size}`} value={size}>
-								{size}
-							</option> // sizeOptions가 있을 때만 실행
+							<option value={size}>{size}</option>
 						))}
-					</select>
+					</Form.Select>
+					<Container className='Btns'>
+						<Button variant='outline-dark' className='add-btn'>
+							ADD TO CART
+						</Button>
+						<Button variant='dark' className='buy-btn'>
+							BUY NOW
+						</Button>
+					</Container>
 				</div>
 			</Container>
 		</div>
